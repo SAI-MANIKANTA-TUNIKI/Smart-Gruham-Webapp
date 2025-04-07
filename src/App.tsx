@@ -113,11 +113,11 @@ const App: React.FC = () => {
   path="/Profile"
   element={
     isAuthenticated ? (
-      <Profile
-        darkMode={darkMode}
-        username={tempProfile}
-        onUsernameChange={handleUsernameChange}
-      />
+<Profile
+  darkMode={darkMode}
+  onUsernameChange={handleUsernameChange}
+/>
+
     ) : (
       <Navigate to="/" />
     )
