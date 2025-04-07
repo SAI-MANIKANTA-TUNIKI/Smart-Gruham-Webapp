@@ -240,7 +240,7 @@ const OfficeRoom: React.FC<OfficeRoomProps> = ({ darkMode }) => {
   const handleAddRoom = async () => {
     if (!newRoomName.trim()) return;
 
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('rooms')
       .insert({
         name: newRoomName,

@@ -4,11 +4,13 @@ import { supabase } from '../../Gruham-Server/supabaseClient';
 
 interface ProfileProps {
   darkMode: boolean;
-  username: string;
   onUsernameChange: (newUsername: string) => void;
 }
 
-const Profile: React.FC<ProfileProps> = ({ darkMode, username, onUsernameChange }) => {
+
+
+const Profile: React.FC<ProfileProps> = ({ darkMode, onUsernameChange }) => {
+
   const [isEditing, setIsEditing] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
   const [profile, setProfile] = useState<any>({
