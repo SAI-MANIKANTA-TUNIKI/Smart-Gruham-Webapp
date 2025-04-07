@@ -1,0 +1,215 @@
+/* General Container */
+.container {
+  font-family: 'Inter', sans-serif;
+  padding: 2rem;
+  background: #f9fafb;
+  color: #111827;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container.darkMode {
+  background: #1f2937;
+  color: #f9fafb;
+}
+
+/* Title */
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: inherit;
+}
+
+/* Room Container */
+.roomContainer {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.container.darkMode .roomContainer {
+  background: rgba(31, 41, 55, 0.7);
+}
+
+.roomContainer:hover {
+  transform: translateY(-3px);
+}
+
+/* Room Header */
+.roomHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.roomTitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.editIcon {
+  font-size: 1.5rem;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.editIcon:hover {
+  color: #6b7280;
+}
+
+/* Input Styles */
+.input {
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+/* Save Button */
+.saveButton {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.saveButton:hover {
+  background: #2563eb;
+}
+
+/* Room Image */
+.roomImageContainer {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.roomImage {
+  max-width: 100%;
+  max-height: 250px;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Status Section */
+.statusContainer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.statusBox {
+  flex: 1;
+  background: #e5e7eb;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.container.darkMode .statusBox {
+  background: #374151;
+}
+
+.statusBox .icon {
+  font-size: 1.8rem;
+  margin-right: 0.75rem;
+  color: #10b981;
+}
+
+.statusBox p {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Devices Grid */
+.devicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.deviceCard {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.deviceCard.on {
+  background: #ecfdf5;
+}
+
+.deviceCard.off {
+  background: #fef3c7;
+}
+
+.container.darkMode .deviceCard {
+  background: #4b5563;
+  color: white;
+}
+
+.deviceCard:hover {
+  transform: translateY(-4px);
+}
+
+.deviceImage {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.deviceInfo {
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.deviceCard .editIcon {
+  margin-top: 0.75rem;
+  font-size: 1.25rem;
+  color: #9ca3af;
+  cursor: pointer;
+}
+
+.deviceCard .editIcon:hover {
+  color: #6b7280;
+}
+
+/* File input styles */
+input[type="file"] {
+  margin-top: 0.5rem;
+}

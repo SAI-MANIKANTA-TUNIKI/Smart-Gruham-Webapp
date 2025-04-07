@@ -1,0 +1,181 @@
+/* Camera.module.css */
+
+:root {
+  --bg-color-light: #f4f4f4;
+  --bg-color-dark: #1a1a1a;
+  --card-bg-light: #ffffff;
+  --card-bg-dark: #2a2a2a;
+  --text-light: #1f1f1f;
+  --text-dark: #f1f1f1;
+  --primary: #00d9ff;
+  --success: #4caf50;
+  --error: #ff4d4d;
+  --border-radius: 16px;
+  --transition: 0.3s ease;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Global dark mode styling */
+.darkMode {
+  background-color: var(--bg-color-dark);
+  color: var(--text-dark);
+}
+
+/* Header Styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  background-color: var(--card-bg-light);
+  border-radius: var(--border-radius);
+  margin-bottom: 30px;
+  box-shadow: var(--shadow);
+}
+
+.darkMode .header {
+  background-color: var(--card-bg-dark);
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.nav {
+  display: flex;
+  gap: 15px;
+}
+
+.navButton {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.navButton:hover {
+  background-color: #00c0e0;
+  transform: translateY(-2px);
+}
+
+/* Camera List */
+.cameraList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 0 16px 40px;
+}
+
+/* Camera Card */
+.cameraCard {
+  background-color: var(--card-bg-light);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.darkMode .cameraCard {
+  background-color: var(--card-bg-dark);
+}
+
+.cameraCard:hover {
+  transform: translateY(-4px);
+}
+
+.cameraImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 4px solid var(--primary);
+}
+
+.cameraInfo {
+  padding: 16px;
+}
+
+.cameraSection,
+.cameraStatus {
+  margin: 6px 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.closed {
+  border-left: 6px solid var(--error);
+}
+
+.opened {
+  border-left: 6px solid var(--success);
+}
+
+/* Add Camera Form */
+.addCameraForm {
+  background-color: var(--card-bg-light);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin: 40px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.darkMode .addCameraForm {
+  background-color: var(--card-bg-dark);
+}
+
+.addCameraForm h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.inputField {
+  padding: 12px 16px;
+  border: 2px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  transition: border-color var(--transition);
+  background-color: #fff;
+  color: var(--text-light);
+}
+
+.darkMode .inputField {
+  background-color: #333;
+  color: var(--text-dark);
+  border-color: #444;
+}
+
+.inputField:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.addButton {
+  background-color: var(--success);
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  align-self: flex-start;
+}
+
+.addButton:hover {
+  background-color: #3ea944;
+  transform: scale(1.03);
+}

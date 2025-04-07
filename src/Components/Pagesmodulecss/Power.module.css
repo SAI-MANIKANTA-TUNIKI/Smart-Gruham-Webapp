@@ -1,0 +1,154 @@
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --primary-color: #0d6efd;
+  --accent-color: #6610f2;
+  --highlight-color: #198754;
+  --increase-color: #28a745;
+  --decrease-color: #17a2b8;
+  --card-bg: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --border-radius: 16px;
+}
+
+[data-theme='dark'] {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --primary-color: #0dcaf0;
+  --accent-color: #d63384;
+  --highlight-color: #20c997;
+  --increase-color: #00e676;
+  --decrease-color: #40c4ff;
+  --card-bg: #1e1e1e;
+  --shadow: rgba(255, 255, 255, 0.05);
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Page Title */
+.pageTitle {
+  font-size: 2.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 40px 0 20px;
+  color: var(--primary-color);
+}
+
+/* Time Frame Tabs */
+.timeFrame {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.timeFrame span {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.timeFrame span:hover {
+  background-color: var(--highlight-color);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.timeFrame .active {
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 4px 10px var(--shadow);
+}
+
+.totalUsage {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.totalUsage h2 {
+  font-size: 3.5rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.usageChange {
+  font-size: 1.25rem;
+  color: var(--increase-color);
+  font-weight: 600;
+}
+
+.usageChangeValue {
+  font-size: 1.25rem;
+  color: var(--decrease-color);
+  font-weight: 600;
+}
+
+/* Chart Container */
+.chartContainer {
+  margin: 0 auto 50px;
+  padding: 40px;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 18px var(--shadow);
+  max-width:fit-content;
+  animation: slideUp 1s ease-out;
+  
+}
+
+/* Usage Per Room */
+.usagePerRoom {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 0 20px 50px;
+}
+
+.roomUsage {
+  padding: 20px;
+  border-radius: var(--border-radius);
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px var(--shadow);
+  transition: all 0.3s ease-in-out;
+}
+
+.roomUsage:hover {
+  transform: translateY(-5px);
+  color: var(--accent-color);
+}
+
+.usagePercent {
+  font-size: 1rem;
+  display: block;
+  color: var(--highlight-color);
+  margin-top: 8px;
+}
+
+/* Animations */
+@keyframes slideUp {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.dashboardContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}

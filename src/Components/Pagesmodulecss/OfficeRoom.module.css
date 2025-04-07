@@ -1,0 +1,174 @@
+/* OfficeRoom.module.css */
+
+/* General Styling */
+.lightMode {
+  background-color: #f7f7f7;
+  color: #000;
+}
+
+.darkMode {
+  background-color: #2f2f2f;
+  color: #fff;
+}
+
+.switchesContainer {
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 10px 0;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.devicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.deviceCard {
+ 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.deviceCard:hover {
+  transform: scale(1.05);
+}
+
+.deviceInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.deviceImage {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.deviceImageStyle {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.deviceName {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.editButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.threeDots {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.deviceStatus {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addDeviceForm,
+.addConfigForm {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.addDeviceForm input,
+.addConfigForm input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.addDeviceForm button,
+.addConfigForm button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.addDeviceForm button:hover,
+.addConfigForm button:hover {
+  background-color: #0056b3;
+}
+
+.controls {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.turnOffAll {
+  padding: 10px 20px;
+  background-color: #ff3333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.turnOffAll:hover {
+  background-color: #cc0000;
+}
+
+.deviceStatusText {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
