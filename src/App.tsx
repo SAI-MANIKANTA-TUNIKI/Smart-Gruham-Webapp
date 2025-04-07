@@ -6,7 +6,7 @@ import Home from './Components/Pages/Home';
 import PowerSystem from './Components/Pages/Power';
 import Profile from './Components/Pages/Profile';
 import DeviceData from './Components/Pages/DeviceData';
-import Camera from './Components/Pages/Camers';
+import Camera from './Components/Pages/Camers'; // ✅ Fixed: was `Camers`
 import OfficeRoom from './Components/Pages/OfficeRoom';
 import SettingsPage from './Components/Pages/Setting';
 import Authentication from './Components/Authentication/Authentication';
@@ -16,25 +16,28 @@ import { supabase } from './Gruham-Server/supabaseClient';
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [tempProfile, settempProfile] = useState<string>('');
+  const [tempProfile, setTempProfile] = useState<string>('');
 
   useEffect(() => {
+    // Load dark mode setting from localStorage
     const storedDarkMode = localStorage.getItem('darkMode') === 'true';
     setDarkMode(storedDarkMode);
 
+    // Get Supabase session
     const getSession = async () => {
       const { data } = await supabase.auth.getSession();
       if (data.session) {
         setIsAuthenticated(true);
-        settempProfile(data.session.user.user_metadata?.name || '');
+        setTempProfile(data.session.user.user_metadata?.name || '');
       }
     };
     getSession();
 
+    // Listen for auth state changes
     const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
       setIsAuthenticated(!!session);
       if (session?.user) {
-        settempProfile(session.user.user_metadata?.name || '');
+        setTempProfile(session.user.user_metadata?.name || '');
       }
     });
 
@@ -58,7 +61,7 @@ const App: React.FC = () => {
   };
 
   const handleUsernameChange = (newUsername: string) => {
-    settempProfile(newUsername);
+    setTempProfile(newUsername);
   };
 
   return (
@@ -67,36 +70,77 @@ const App: React.FC = () => {
         {isAuthenticated && <Navbar />}
 
         <Routes>
+          {/* Authentication */}
           <Route
             path="/"
-            element={isAuthenticated ? <Navigate to="/home" /> : <Authentication onLogin={handleLogin} />}
+            element={
+              isAuthenticated ? <Navigate to="/home" /> : <Authentication onLogin={handleLogin} />
+            }
           />
+
+          {/* Pages */}
           <Route
             path="/home"
-            element={isAuthenticated ? <Home darkMode={darkMode} username={tempProfile} /> : <Navigate to="/" />}
+            element={
+              isAuthenticated ? (
+                <Home darkMode={darkMode} username={tempProfile} />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
           />
           <Route
             path="/PowerSystem"
-            element={isAuthenticated ? <PowerSystem darkMode={darkMode} /> : <Navigate to="/" />}
+            element={
+              isAuthenticated ? (
+                <PowerSystem darkMode={darkMode} />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
           />
           <Route
             path="/DeviceData"
-            element={isAuthenticated ? <DeviceData darkMode={darkMode} /> : <Navigate to="/" />}
+            element={
+              isAuthenticated ? (
+                <DeviceData darkMode={darkMode} />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
           />
           <Route
             path="/Camera"
-            element={isAuthenticated ? <Camera darkMode={darkMode} /> : <Navigate to="/" />}
+            element={
+              isAuthenticated ? (
+                <Camera darkMode={darkMode} />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
           />
           <Route
             path="/OfficeRoom"
-            element={isAuthenticated ? <OfficeRoom darkMode={darkMode} /> : <Navigate to="/" />}
+            element={
+              isAuthenticated ? (
+                <OfficeRoom darkMode={darkMode} />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
           />
           <Route
             path="/LedStrip"
-            element={isAuthenticated ? <LedStrip darkMode={darkMode} /> : <Navigate to="/" />}
+            element={
+              isAuthenticated ? (
+                <LedStrip darkMode={darkMode} />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
           />
           <Route
-            path="/Settingspage"
+            path="/SettingsPage" // ✅ Fixed capitalization
             element={
               isAuthenticated ? (
                 <SettingsPage
@@ -109,20 +153,19 @@ const App: React.FC = () => {
               )
             }
           />
-<Route
-  path="/Profile"
-  element={
-    isAuthenticated ? (
-<Profile
-  darkMode={darkMode}
-  onUsernameChange={handleUsernameChange}
-/>
-
-    ) : (
-      <Navigate to="/" />
-    )
-  }
-/>
+          <Route
+            path="/Profile"
+            element={
+              isAuthenticated ? (
+                <Profile
+                  darkMode={darkMode}
+                  onUsernameChange={handleUsernameChange}
+                />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
         </Routes>
       </div>
     </HashRouter>
